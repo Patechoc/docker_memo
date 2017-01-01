@@ -1,11 +1,38 @@
 # Useful notes about Docker
 
 
+## Check your images and containers
+
+
+### List all your images
+
+```shell
+docker images
+```
+
+
+### List all your containers
+
+```shell
+docker ps -a to list all containers 
+```
 
 
 
+## Clean images and containers
 
-## Clean images adn containers
+
+### Delete an image
+
+```shell
+docker rmi <*your image id*>
+```
+
+### Delete a container
+
+```shell
+docker rm <*your container id*>
+```
 
 ### Nuclear Clean :)
 
