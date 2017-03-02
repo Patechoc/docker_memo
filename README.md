@@ -95,3 +95,31 @@ docker-compose -d up   # to start your services in the background (in **detached
 docker-compose stop   # Stop all of your services
 docker-compose down --volumes   # Bring everything down (i.e. including the data volumes used by your services)
 ```
+## Tag and Push your image to Dockerhub
+
+* List your docker images to find the ID of the image you want to push
+
+```shell
+docker images
+```
+* Tag your image using this ID, and check it has been tagged properly
+
+```shell
+docker tag 71df3012md... patrickmerlot/docker_demo:latest
+docker images
+```
+
+* Create an account on Dockerhub if not done already, then login
+
+```shell
+docker login
+```
+
+* Push your image to DockerHub
+
+```shell
+docker push patrickmerlot/docker_demo
+```
+
+and your done!
+Check if it appears online: [https://hub.docker.com/r/patrickmerlot/docker_demo/](https://hub.docker.com/r/patrickmerlot/docker_demo/)
