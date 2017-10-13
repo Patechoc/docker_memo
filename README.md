@@ -1,6 +1,24 @@
 # Useful notes about Docker
 
 
+* [Check your images and containers](#check-your-images-and-containers)
+   * [List all your images](#list-all-your-images)
+   * [List all your containers](#list-all-your-containers)
+* [Clean images and containers](#clean-images-and-containers)
+   * [Delete an image](#delete-an-image)
+   * [Delete a container](#delete-a-container)
+   * [Nuclear Clean :)](#nuclear-clean-)
+      * [Clean all containers](#clean-all-containers)
+      * [Clean all images](#clean-all-images)
+* [Clean the volumes](#clean-the-volumes)
+   * [List dangling volumes:](#list-dangling-volumes)
+   * [List all volumes:](#list-all-volumes)
+   * [Remove data within the volumes](#remove-data-within-the-volumes)
+* [Docker Compose](#docker-compose)
+   * [Useful commands for Docker Compose](#useful-commands-for-docker-compose)
+* [Tag and Push your image to Dockerhub](#tag-and-push-your-image-to-dockerhub)
+
+
 ## Check your images and containers
 
 
