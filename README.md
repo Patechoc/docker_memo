@@ -68,15 +68,17 @@ Functionality folded directly into native Docker, no longer a standalone tool.
 
 ### Docker Machine
 
+Use `docker-machine` to create, use and manage a Docker host inside of a local virtual machine.
+
 * [Docker Engine & Docker Machine](https://docs.docker.com/machine/overview/)
 * [Installation](https://docs.docker.com/machine/install-machine/)
+* [Get started with Docker Machine and a local VM](https://docs.docker.com/machine/get-started/)
 
 ### Docker CLoud
 
 Manages multi-container applications and host resources running on a cloud provider (such as Amazon Web Services or Azure).
 
 * [About Docker Cloud](https://docs.docker.com/docker-cloud/)
-
 
 
 
@@ -248,6 +250,15 @@ and your done!
 Check if it appears online: [https://hub.docker.com/r/patrickmerlot/docker_demo/](https://hub.docker.com/r/patrickmerlot/docker_demo/)
 
 
+## Load-balancing
+
+[Get Started, Part 3: Services](https://docs.docker.com/get-started/part3/#introduction): **scale our application** and enable **load-balancing**. To do this, we must go one level up in the hierarchy of a distributed application: the service.
+
+In a distributed application, different pieces of the app are called “services.”
+
+Services are really just “containers in production.” A service only runs one image, but it codifies the way that image runs—what ports it should use, how many replicas of the container should run so the service has the capacity it needs, and so on. Scaling a service changes the number of container instances running that piece of software, assigning more computing resources to the service in the process.
+
+Luckily it’s very easy to define, run, and scale services with the Docker platform – just write a `docker-compose.yml` file.
 
 
 ## Links
