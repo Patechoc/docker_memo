@@ -18,7 +18,6 @@
 * [Passing environment variables, ports and IP addresses](#passing-environment-variables-ports-and-ip-addresses)
    * [Example running a webapp](#example-running-a-webapp)
    * [On which port is your webapp running?](#on-which-port-is-your-webapp-running)
-   * [On which port is your webapp running?](#on-which-port-is-your-webapp-running-1)
 * [Clean the volumes](#clean-the-volumes)
    * [List dangling volumes:](#list-dangling-volumes)
    * [List all volumes:](#list-all-volumes)
@@ -178,12 +177,22 @@ $ docker rm static-site-2
 docker port static-site
 ```
 
-### On which port is your webapp running?
+
+### Run shell commands from within a container
 
 ```shell
-docker port static-site
+$ docker ps -a
+CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                      NAMES
+708609e11d30        flaskrecipeapp_web        "flask run --host=..."   36 hours ago        Up 2 hours          0.0.0.0:8000->8000/tcp     flaskrecipeapp_web_1
+f8e456ef29c2        flaskrecipeapp_postgres   "docker-entrypoint..."   36 hours ago        Up 2 hours          0.0.0.0:5432->5432/tcp     flaskrecipeapp_postgres_1
+590489d1c492        mlsuite_jupyter           "/bin/sh -c 'jupyt..."   4 days ago          Up 3 minutes        0.0.0.0:8899->8899/tcp     mlsuite_jupyter_1
+69c232091e02        mlsuite_executionserver   "/bin/sh -c 'pytho..."   4 days ago          Up 3 minutes        0.0.0.0:4007->4007/tcp     mlsuite_executionserver_1
+d397ba1e1435        mlsuite_modelserver       "/bin/sh -c 'pytho..."   4 days ago          Up 3 minutes        0.0.0.0:4001->4001/tcp     mlsuite_modelserver_1
+b7ec18ee5cd1        mlsuite_doc               "nginx -g 'daemon ..."   4 days ago          Up 3 minutes        0.0.0.0:8123->80/tcp       mlsuite_doc_1
+51ec9571292f        mongo:latest              "docker-entrypoint..."   2 weeks ago         Up 3 minutes        0.0.0.0:27017->27017/tcp   mongodb
+$
+$ sudo docker exec -i -t 590489d1c492 /bin/bash
 ```
-
 
 ## Clean the volumes
 
