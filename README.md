@@ -114,6 +114,14 @@ docker rmi <*your image id*>
 docker rm <*your container id*>
 ```
 
+### Delete containers 
+
+To remove all docker containers based on a specific image name, e.g. `centos:7`:
+
+```shell
+# docker ps -a | awk '{ print $1,$2 }' | grep centos:7 | awk '{print $1 }' | xargs -I {} docker rm {}
+```
+
 ### Nuclear Clean :)
 
 > If you get an error like **"no space left on device"** and if you don't care about doing a *nuclear clean*, you can:
