@@ -12,12 +12,14 @@
 * [Clean images and containers](#clean-images-and-containers)
    * [Delete an image](#delete-an-image)
    * [Delete a container](#delete-a-container)
+   * [Delete containers from a specific image](#delete-containers-from-a-specific-image)
    * [Nuclear Clean :)](#nuclear-clean-)
       * [Clean all containers](#clean-all-containers)
       * [Clean all images](#clean-all-images)
 * [Passing environment variables, ports and IP addresses](#passing-environment-variables-ports-and-ip-addresses)
    * [Example running a webapp](#example-running-a-webapp)
    * [On which port is your webapp running?](#on-which-port-is-your-webapp-running)
+   * [Run shell commands from within a container](#run-shell-commands-from-within-a-container)
 * [Clean the volumes](#clean-the-volumes)
    * [List dangling volumes:](#list-dangling-volumes)
    * [List all volumes:](#list-all-volumes)
@@ -25,7 +27,9 @@
 * [Docker Compose](#docker-compose-1)
    * [Useful commands for Docker Compose](#useful-commands-for-docker-compose)
 * [Tag and Push your image to Dockerhub](#tag-and-push-your-image-to-dockerhub)
+* [Load-balancing](#load-balancing)
 * [Links](#links)
+
 
 
 ## Docker Products
@@ -114,12 +118,16 @@ docker rmi <*your image id*>
 docker rm <*your container id*>
 ```
 
-### Delete containers 
+### Delete containers from a specific image
 
 To remove all docker containers based on a specific image name, e.g. `centos:7`:
 
 ```shell
-# docker ps -a | awk '{ print $1,$2 }' | grep centos:7 | awk '{print $1 }' | xargs -I {} docker rm {}
+# Stop all containers with the given image name
+docker ps -a | awk '{ print $1,$2 }' | grep centos:7 | awk '{print $1 }' | xargs -L1 docker stop
+
+# Delete the same stopped containers
+docker ps -a | awk '{ print $1,$2 }' | grep centos:7 | awk '{print $1 }' | xargs -I {} docker rm {}
 ```
 
 ### Nuclear Clean :)
