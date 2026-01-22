@@ -138,7 +138,7 @@ docker ps -a | awk '{ print $1,$2 }' | grep centos:7 | awk '{print $1 }' | xargs
 
 ```shell
 docker-compose stop
-docker ps -a | sed '1 d' | awk '{print $1}' | xargs -L1 docker rm
+docker container prune -f
 ```
 
 #### Clean all images 
@@ -147,7 +147,7 @@ docker ps -a | sed '1 d' | awk '{print $1}' | xargs -L1 docker rm
 
 ```shell
 docker-compose stop
-docker images -a | sed '1 d' | awk '{print $3}' | xargs -L1 docker rmi -f
+docker image prune -a -f
 ```
 
 
